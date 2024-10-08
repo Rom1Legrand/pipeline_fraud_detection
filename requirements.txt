@@ -1,0 +1,9 @@
+boto3  # Pour interagir avec S3
+psycopg2-binary  # Pour se connecter à Redshift
+geopy  # Pour géocoder les adresses
+joblib  # Pour sauvegarder les modèles
+scikit-learn  # Pour les modèles de machine learning
+flask  # Pour l'API
+gunicorn  # Pour lancer l'API
+mlflow  # Pour le tracking des modèles
+werkzeug  # Pour l'API
