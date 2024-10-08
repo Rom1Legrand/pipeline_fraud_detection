@@ -113,10 +113,10 @@ def send_fraud_email(**context):
         body = f"Fraude détectée dans {len(fraud_transactions)} transactions:\n\n{fraud_transactions.to_string()}"
     else:
         body = "Fraude détectée, mais aucun détail disponible."
-    send_fraud_alert_email("Alerte de fraude", body, 'legrandromain@gmail.com')
+    send_fraud_alert_email("Alerte de fraude", body, 'xxxxx@gmail.com')
 
 def send_no_fraud_email(**context):
-    send_fraud_alert_email("Aucune fraude détectée", "Aucune transaction frauduleuse n'a été identifiée.", 'legrandromain@gmail.com')
+    send_fraud_alert_email("Aucune fraude détectée", "Aucune transaction frauduleuse n'a été identifiée.", 'xxxxxxxx@gmail.com')
     
 
 def save_to_s3(**context):
@@ -152,8 +152,8 @@ def save_to_s3(**context):
 def send_fraud_alert_email(subject, body, to_email):
     smtp_server = "smtp.gmail.com"
     smtp_port = 587  # Port pour TLS
-    smtp_user = "dsgattaca@gmail.com"
-    smtp_password = "olpdxyxishlezqtw"
+    smtp_user = "xxxxxx@gmail.com"
+    smtp_password = "xxxxxxx"
 
     msg = EmailMessage()
     msg.set_content(body)
@@ -267,13 +267,13 @@ save_to_s3_task = PythonOperator(
     dag=dag,
 )
 
-'''# Tâche pour créer la table dans Redshift
+# Tâche pour créer la table dans Redshift
 create_redshift_table = RedshiftSQLOperator(
     task_id='create_redshift_table',
     sql=create_table_sql,
     redshift_conn_id='redshift_default',
     dag=dag
-)'''
+)
 
 
 # Tâche pour créer la table dans Redshift
